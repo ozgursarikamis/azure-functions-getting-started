@@ -1,0 +1,21 @@
+Install-Module -Name Az -AllowClobber -Scope CurrentUser
+
+// Generate App Service plan
+az appservice plan create -g M3GloboGroup -l "UK West"  -n M3GloboPlan --sku S1 --number-of-workers 2
+
+
+// Create a web app
+az webapp create -p M3GloboPlan -g M3GloboGroup -n M3Globomantics -l
+
+-p : plan
+-g : resource group
+-l : local git deployment
+
+
+// Create a SQL Server:
+az sql server create -n M3GloboDBS -g M3GloboGroup -l SouthCentralUS -u mnmillner -p
+
+// Create a SQL Server Database:
+az sql db create -n M3GloboDB -s M3GloboDBS -g M3GloboGroup -e Free
+// -e: Edition
+//		Free, Basic, Standard
