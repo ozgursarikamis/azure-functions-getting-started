@@ -24,3 +24,14 @@ az sql db create -n M3GloboDB -s M3GloboDBS -g M3GloboGroup -e Free
 func init: generate new AF project
 func new : generate new function
 func host start : start the Function locally
+
+|-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-|
+			local.settings.json:
+|-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-|
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true", /* Azure Storage Emulator */
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    }
+}
