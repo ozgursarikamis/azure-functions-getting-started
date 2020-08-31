@@ -19,3 +19,8 @@ az sql server create -n M3GloboDBS -g M3GloboGroup -l SouthCentralUS -u mnmillne
 az sql db create -n M3GloboDB -s M3GloboDBS -g M3GloboGroup -e Free
 // -e: Edition
 //		Free, Basic, Standard
+
+///////////////// Azure Functions:
+func init: generate new AF project
+func new : generate new function
+func host start : start the Function locally
