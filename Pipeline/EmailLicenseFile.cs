@@ -17,8 +17,10 @@ namespace pluralsightfuncs
         {
             var email = order.Email;
             log.LogInformation($"Got order from {email}\n Order Id:{orderId}");
-            var message = new SendGridMessage();
-            message.From = new EmailAddress(Environment.GetEnvironmentVariable("EmailSender"));
+            var message = new SendGridMessage
+            {
+                From = new EmailAddress(Environment.GetEnvironmentVariable("EmailSender"))
+            };
             message.AddTo(email);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(licenseFileContents);
             var base64 = Convert.ToBase64String(plainTextBytes);
