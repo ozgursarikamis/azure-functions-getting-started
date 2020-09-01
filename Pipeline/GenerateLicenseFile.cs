@@ -14,12 +14,12 @@ namespace pluralsightfuncs
             IBinder binder,
             ILogger log)
         {
-            //var outputBlob = await binder.BindAsync<TextWriter>(
-            //    new BlobAttribute($"licenses/{order.OrderId}.lic")
-            //    {
-            //        Connection = "AzureWebJobStorage"
-            //    }
-            //);
+            var outputBlob = await binder.BindAsync<TextWriter>(
+                new BlobAttribute($"licenses/{order.OrderId}.lic")
+                {
+                    Connection = "AzureWebJobStorage"
+                }
+            );
 
             await outputBlob.WriteLineAsync($"OrderId: {order.OrderId}");
             await outputBlob.WriteLineAsync($"Email: {order.Email}");
