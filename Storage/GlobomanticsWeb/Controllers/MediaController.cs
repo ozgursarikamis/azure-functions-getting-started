@@ -41,5 +41,25 @@ namespace GlobomanticsWeb.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Index()
+        {
+            var images = new List<ImageModel>();
+            //get a list of images in the container and add to the list
+            var containerClient = new BlobContainerClient(
+                config["BlobCNN"], "m3globoimages");
+
+            var blobs = containerClient.GetBlobsAsync(BlobTraits.Metadata);
+            await foreach (var item in blobs)
+            {
+                images.Add(new ImageModel
+                {
+                    Name = item.Metadata["customName"],
+                    ImageFileName = item.Name
+                });
+            }
+
+            return View(images);
+        }
     }
 }
