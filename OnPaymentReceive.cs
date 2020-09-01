@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Azure.Functions.Getting.Started
+namespace AzureFunctions.Getting.Started
 {
 	public class Order
 	{
