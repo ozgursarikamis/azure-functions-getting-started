@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.WindowsAzure.Storage.Table;
+﻿using Microsoft.WindowsAzure.Storage.Table;
+using System;
 
 namespace ServerlessComputing
 {
@@ -21,7 +21,6 @@ namespace ServerlessComputing
         public bool IsCompleted { get; set; }
         public string TaskDescription { get; set; }
     }
-
     public class TodoTableEntity : TableEntity
     {
         public DateTime CreatedTime { get; set; }
@@ -45,7 +44,7 @@ namespace ServerlessComputing
 
         public static Todo ToTodo(this TodoTableEntity todo)
         {
-            return new Todo
+            return new Todo()
             {
                 Id = todo.RowKey,
                 CreatedTime = todo.CreatedTime,
@@ -53,5 +52,6 @@ namespace ServerlessComputing
                 TaskDescription = todo.TaskDescription
             };
         }
+
     }
 }

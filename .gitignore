@@ -5,3 +5,4 @@
 /.vs/AzureFunctions
 /Storage/.vs/Globomantics
 /Storage/GlobomanticsWeb/obj
+/Storage/GlobomanticsWeb/bin/Debug/netcoreapp3.1
