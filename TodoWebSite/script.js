@@ -37,7 +37,7 @@ var app = new Vue({
         },     
     },
     mounted: function () {
-        fetch(`${baseAddress}/api/todo`)
+        fetch(`${baseAddress}/api/todos`)
             .then(response => response.json())
             .then(json => this.todos = json)
             .catch(reason => this.error = `Failed to fetch todos: ${reason}`);

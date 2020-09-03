@@ -13,7 +13,7 @@ namespace ServerlessComputing
 {
     public static class TodoApi
     {
-        static List<Todo> items = new List<Todo>();
+        public static List<Todo> items = new List<Todo>();
 
         [FunctionName("CreateTodo")]
         public static async Task<IActionResult> CreateTodo(
